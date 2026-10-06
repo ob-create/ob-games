@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>O.B GAMES | Products</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#07110d;
+    --header:#0b1712;
+    --card:#0c1b14;
+    --card2:#10251a;
+    --border:#16462f;
+    --green:#00ff88;
+    --green2:#00c96b;
+    --text:#fff;
+    --muted:#9fb4a9;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(0,255,136,.07),transparent 35%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,17,13,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1250px;
+    min-height:75px;
+    margin:auto;
+    padding:14px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:var(--green);
+    white-space:nowrap;
+}
+
+.logo span{
+    color:white;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+nav a{
+    color:#d7e5dd;
+    font-size:14px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+    color:var(--green);
+}
+
+/* ================= LANGUAGE ================= */
+
+.language-selector{
+    position:relative;
+}
+
+#languageButton{
+    background:#10271b;
+    color:white;
+    border:1px solid #1c5a3b;
+    padding:9px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.language-menu{
+    display:none;
+    position:absolute;
+    right:0;
+    top:45px;
+    min-width:150px;
+    overflow:hidden;
+
+    background:#0d1d15;
+    border:1px solid #1c5a3b;
+    border-radius:10px;
+    z-index:2000;
+}
+
+.language-menu.show{
+    display:block;
+}
+
+.language-menu button{
+    width:100%;
+    padding:12px;
+    border:0;
+    background:transparent;
+    color:white;
+    text-align:left;
+    cursor:pointer;
+}
+
+.language-menu button:hover{
+    background:#123c27;
+    color:var(--green);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px 55px;
+    text-align:center;
+}
+
+.hero-badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid var(--green);
+    border-radius:30px;
+    color:var(--green);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,78px);
+    line-height:.95;
+    font-weight:900;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ================= TOOLBAR ================= */
+
+.toolbar{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    flex:1;
+    min-width:250px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 17px;
+
+    background:#0b1913;
+    color:white;
+
+    border:1px solid var(--border);
+    border-radius:10px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(0,255,136,.05);
+}
+
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    padding:12px 15px;
+    border-radius:9px;
+    border:1px solid var(--border);
+
+    background:#0c1b14;
+    color:#d5e4dc;
+
+    cursor:pointer;
+    font-size:11px;
+    font-weight:900;
+    transition:.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--green);
+    color:#06100b;
+    border-color:var(--green);
+}
+
+/* ================= PRODUCTS GRID ================= */
+
+.products-section{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 90px;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.015),
+            transparent
+        ),
+        var(--card);
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.product-card::after{
+    content:"";
+    position:absolute;
+    left:15%;
+    right:15%;
+    bottom:-80px;
+    height:120px;
+
+    background:rgba(0,255,136,.08);
+    filter:blur(40px);
+
+    pointer-events:none;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--green);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45),
+        0 0 25px rgba(0,255,136,.06);
+}
+
+/* ================= PRODUCT COVER ================= */
+
+.product-image{
+    position:relative;
+    height:265px;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(0,255,136,.13),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            #153323 0%,
+            #0b1b13 45%,
+            #050b08 100%
+        );
+}
+
+/* decorative grid */
+
+.product-image::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(0,255,136,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,255,136,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:30px 30px;
+
+    opacity:.6;
+}
+
+/* center ring */
+
+.product-image::after{
+    content:"";
+    position:absolute;
+
+    width:175px;
+    height:175px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(0,255,136,.12);
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 28px rgba(0,255,136,.025),
+        0 0 0 55px rgba(0,255,136,.015);
+}
+
+/* ================= REAL IMAGE ================= */
+
+.product-image img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+    z-index:5;
+}
+
+.product-image.has-image img{
+    display:block;
+}
+
+.product-image.has-image .fallback-cover{
+    display:none;
+}
+
+/* ================= FALLBACK PRODUCT BOX ================= */
+
+.fallback-cover{
+    position:absolute;
+    inset:0;
+    z-index:4;
+
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.cover-brand{
+    position:absolute;
+    top:16px;
+    left:17px;
+
+    color:var(--green);
+
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2.5px;
+}
+
+.cover-category{
+    position:absolute;
+    top:16px;
+    right:17px;
+
+    padding:5px 8px;
+
+    border:1px solid rgba(0,255,136,.22);
+    border-radius:20px;
+
+    color:#94aa9f;
+
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+/* premium abstract product shape */
+
+.product-object{
+    position:relative;
+
+    width:125px;
+    height:105px;
+
+    margin-bottom:18px;
+
+    border:1px solid rgba(0,255,136,.35);
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,255,136,.14),
+            rgba(0,0,0,.28)
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(0,255,136,.05),
+        0 20px 35px rgba(0,0,0,.35);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product-object::before{
+    content:"";
+    width:70%;
+    height:70%;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+}
+
+.product-object::after{
+    content:"";
+    position:absolute;
+
+    width:38px;
+    height:3px;
+
+    background:var(--green);
+    border-radius:10px;
+
+    box-shadow:
+        0 0 15px rgba(0,255,136,.5);
+}
+
+/* different visual shapes */
+
+.object-console{
+    border-radius:12px;
+    width:78px;
+    height:125px;
+}
+
+.object-controller{
+    width:145px;
+    height:75px;
+    border-radius:40px;
+}
+
+.object-headset{
+    width:95px;
+    height:110px;
+    border-radius:48px 48px 20px 20px;
+}
+
+.object-keyboard{
+    width:155px;
+    height:55px;
+    border-radius:9px;
+}
+
+.object-mouse{
+    width:65px;
+    height:100px;
+    border-radius:35px;
+}
+
+.object-storage{
+    width:95px;
+    height:120px;
+    border-radius:12px;
+}
+
+.object-chair{
+    width:100px;
+    height:125px;
+    border-radius:18px 18px 12px 12px;
+}
+
+.object-desk{
+    width:155px;
+    height:70px;
+    border-radius:8px;
+}
+
+.object-vr{
+    width:145px;
+    height:72px;
+    border-radius:35px;
+}
+
+.cover-title{
+    max-width:230px;
+
+    font-size:15px;
+    line-height:1.25;
+
+    font-weight:900;
+    text-transform:uppercase;
+
+    text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+
+.cover-line{
+    width:55px;
+    height:3px;
+
+    margin-top:12px;
+
+    background:var(--green);
+    border-radius:10px;
+
+    box-shadow:0 0 10px rgba(0,255,136,.35);
+}
+
+.cover-bottom{
+    position:absolute;
+    left:17px;
+    right:17px;
+    bottom:14px;
+
+    display:flex;
+    justify-content:space-between;
+
+    color:#63796e;
+
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+/* ================= PRODUCT INFO ================= */
+
+.product-info{
+    padding:18px;
+}
+
+.product-category{
+    color:var(--green);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.7px;
+    margin-bottom:8px;
+    text-transform:uppercase;
+}
+
+.product-info h3{
+    font-size:17px;
+    line-height:1.35;
+    margin-bottom:9px;
+}
+
+.product-info p{
+    min-height:40px;
+
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+}
+
+.product-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+    margin-top:17px;
+}
+
+.price{
+    color:var(--green);
+    font-size:10px;
+    font-weight:900;
+}
+
+.add-btn{
+    border:0;
+
+    padding:10px 12px;
+
+    background:var(--green);
+    color:#06100b;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:9px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.add-btn:hover{
+    transform:scale(1.04);
+    box-shadow:0 5px 18px rgba(0,255,136,.18);
+}
+
+/* ================= EMPTY ================= */
+
+.empty-message{
+    display:none;
+
+    padding:70px 20px;
+
+    text-align:center;
+    color:var(--muted);
+}
+
+/* ================= CART BUTTON ================= */
+
+.cart-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:60px;
+    height:60px;
+
+    z-index:1500;
+
+    border-radius:50%;
+    border:2px solid var(--green);
+
+    background:#0b2116;
+    color:white;
+
+    cursor:pointer;
+
+    font-size:21px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+}
+
+.cart-count{
+    position:absolute;
+    top:-5px;
+    right:-4px;
+
+    min-width:21px;
+    height:21px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--green);
+    color:#06100b;
+
+    border-radius:50%;
+
+    font-size:10px;
+    font-weight:900;
+}
+
+/* ================= CART ================= */
+
+.cart-panel{
+    position:fixed;
+
+    top:0;
+    right:-420px;
+
+    width:min(390px,92vw);
+    height:100vh;
+
+    z-index:2000;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:25px;
+
+    background:#091710;
+    border-left:1px solid var(--border);
+
+    box-shadow:-20px 0 50px rgba(0,0,0,.5);
+
+    transition:.35s ease;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.cart-header h2{
+    font-size:21px;
+}
+
+.close-cart{
+    background:transparent;
+    border:0;
+    color:white;
+    cursor:pointer;
+    font-size:27px;
+}
+
+.cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:18px 0;
+}
+
+.cart-empty{
+    color:var(--muted);
+    text-align:center;
+    padding:40px 10px;
+    line-height:1.7;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:10px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item h4{
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.cart-item small{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.remove-item{
+    background:transparent;
+    border:0;
+
+    color:#ff7373;
+
+    cursor:pointer;
+
+    font-size:9px;
+    font-weight:bold;
+}
+
+.cart-footer{
+    padding-top:18px;
+    border-top:1px solid var(--border);
+}
+
+.cart-note{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.whatsapp-order{
+    display:block;
+
+    width:100%;
+
+    padding:14px;
+
+    background:var(--green);
+    color:#06100b;
+
+    border-radius:9px;
+
+    text-align:center;
+
+    font-size:11px;
+    font-weight:900;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0b1712;
+    border-top:1px solid var(--border);
+    padding:45px 20px 25px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand h2{
+    color:var(--green);
+    margin-bottom:12px;
+}
+
+.footer-brand p,
+footer li{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+}
+
+footer h3{
+    font-size:13px;
+    margin-bottom:13px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin-bottom:7px;
+}
+
+footer a:hover{
+    color:var(--green);
+}
+
+.copyright{
+    max-width:1200px;
+    margin:35px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+    color:#71877b;
+    font-size:11px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1050px){
+
+    .products-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav{
+        order:3;
+        width:100%;
+    }
+}
+
+@media(max-width:760px){
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .toolbar{
+        align-items:stretch;
+    }
+
+    .search-box{
+        min-width:100%;
+    }
+
+    .filters{
+        width:100%;
+    }
+
+    .filter-btn{
+        flex:1;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:520px){
+
+    .nav{
+        padding:13px 12px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:285px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="nav">
+
+<a href="index.html" class="logo">
+O.B <span>GAMES</span>
+</a>
+
+<nav>
+
+<a href="index.html" data-translate="home">
+Home
+</a>
+
+<a href="products.html" class="active" data-translate="products">
+Products
+</a>
+
+<a href="games.html" data-translate="games">
+Games
+</a>
+
+<a href="services.html" data-translate="services">
+Services
+</a>
+
+<a href="about.html" data-translate="about">
+About
+</a>
+
+<a href="contact.html" data-translate="contact">
+Contact
+</a>
+
+</nav>
+
+
+<div class="language-selector">
+
+<button
+id="languageButton"
+type="button"
+onclick="toggleLanguageMenu()">
+
+🇬🇧 English ▾
+
+</button>
+
+<div id="languageMenu" class="language-menu">
+
+<button
+type="button"
+onclick="changeLanguage('en')">
+
+🇬🇧 English
+
+</button>
+
+<button
+type="button"
+onclick="changeLanguage('sw')">
+
+🇹🇿 Kiswahili
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-badge">
+O.B GAMES STORE
+</div>
+
+<h1>
+GAMING
+<span>PRODUCTS.</span>
+</h1>
+
+<p data-translate="productsPageText">
+
+Controllers, consoles, gaming accessories and everything you need for your gaming setup.
+
+</p>
+
+</section>
+
+
+<!-- ================= TOOLBAR ================= -->
+
+<section class="toolbar">
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+data-translate-placeholder="searchProducts">
+
+</div>
+
+
+<div class="filters">
+
+<button
+class="filter-btn active"
+data-filter="all"
+data-translate="allProducts">
+
+All Products
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="consoles"
+data-translate="consoles">
+
+Consoles
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="controllers"
+data-translate="controllers">
+
+Controllers
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="audio"
+data-translate="audio">
+
+Audio
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="accessories"
+data-translate="accessories">
+
+Accessories
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="setup"
+data-translate="setup">
+
+Gaming Setup
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section">
+
+<div
+class="products-grid"
+id="productsGrid">
+</div>
+
+<div
+class="empty-message"
+id="emptyMessage"
+data-translate="noProducts">
+
+No products found.
+
+</div>
+
+</section>
+
+
+<!-- ================= CART BUTTON ================= -->
+
+<button
+class="cart-button"
+onclick="openCart()">
+
+🛒
+
+<span
+class="cart-count"
+id="cartCount">
+
+0
+
+</span>
+
+</button>
+
+
+<!-- ================= CART PANEL ================= -->
+
+<aside
+class="cart-panel"
+id="cartPanel">
+
+<div class="cart-header">
+
+<h2 data-translate="yourCart">
+Your Cart
+</h2>
+
+<button
+class="close-cart"
+onclick="closeCart()">
+
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems">
+</div>
+
+
+<div class="cart-footer">
+
+<p
+class="cart-note"
+data-translate="cartNote">
+
+Add your products to the cart, then send your order through WhatsApp.
+
+</p>
+
+<a
+href="#"
+id="whatsappOrder"
+class="whatsapp-order"
+target="_blank"
+data-translate="orderWhatsApp">
+
+ORDER VIA WHATSAPP
+
+</a>
+
+</div>
+
+</aside>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+
+<h2>
+O.B GAMES
+</h2>
+
+<p data-translate="footerText">
+
+Gaming products, games and gaming services — all in one place.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3 data-translate="quickLinks">
+QUICK LINKS
+</h3>
+
+<ul>
+
+<li>
+<a href="index.html" data-translate="home">
+Home
+</a>
+</li>
+
+<li>
+<a href="products.html" data-translate="products">
+Products
+</a>
+</li>
+
+<li>
+<a href="games.html" data-translate="games">
+Games
+</a>
+</li>
+
+<li>
+<a href="services.html" data-translate="services">
+Services
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3 data-translate="company">
+COMPANY
+</h3>
+
+<ul>
+
+<li>
+<a href="about.html" data-translate="about">
+About
+</a>
+</li>
+
+<li>
+<a href="contact.html" data-translate="contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3 data-translate="connect">
+CONNECT
+</h3>
+
+<ul>
+
+<li>
+<a
+href="https://wa.me/255717184916"
+target="_blank">
+
+WhatsApp
+
+</a>
+</li>
+
+<li>
+<a
+href="https://www.instagram.com/o.b_games/"
+target="_blank">
+
+Instagram
+
+</a>
+</li>
+
+<li>
+<a
+href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+target="_blank">
+
+TikTok
+
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 O.B GAMES —
+
+<span data-translate="allRights">
+All Rights Reserved.
+</span>
+
+</div>
+
+</footer>
+
+
+<script src="language.js"></script>
+
+
+<script>
+
+/* ================= PRODUCT DATABASE ================= */
+
+const products = [
+
+{
+id:1,
+name:"PS5 DualSense Controller",
+category:"controllers",
+label:"Controllers",
+type:"controller",
+description:"Next-generation wireless controller for PlayStation 5.",
+image:"images/products/dualsense.jpg"
+},
+
+{
+id:2,
+name:"PS4 DualShock 4 Controller",
+category:"controllers",
+label:"Controllers",
+type:"controller",
+description:"Classic wireless controller for PlayStation 4.",
+image:"images/products/dualshock4.jpg"
+},
+
+{
+id:3,
+name:"PS5 Console",
+category:"consoles",
+label:"Consoles",
+type:"console",
+description:"Next-generation PlayStation gaming console.",
+image:"images/products/ps5.jpg"
+},
+
+{
+id:4,
+name:"PS4 Console",
+category:"consoles",
+label:"Consoles",
+type:"console",
+description:"PlayStation 4 console for your gaming setup.",
+image:"images/products/ps4.jpg"
+},
+
+{
+id:5,
+name:"PS3 Console",
+category:"consoles",
+label:"Consoles",
+type:"console",
+description:"Classic PlayStation console with a huge game library.",
+image:"images/products/ps3.jpg"
+},
+
+{
+id:6,
+name:"Xbox Wireless Controller",
+category:"controllers",
+label:"Controllers",
+type:"controller",
+description:"Wireless Xbox controller for comfortable gaming.",
+image:"images/products/xbox-controller.jpg"
+},
+
+{
+id:7,
+name:"Gaming Headset",
+category:"audio",
+label:"Audio",
+type:"headset",
+description:"Immersive gaming headset with clear game audio.",
+image:"images/products/gaming-headset.jpg"
+},
+
+{
+id:8,
+name:"Wireless Gaming Headset",
+category:"audio",
+label:"Audio",
+type:"headset",
+description:"Wireless gaming audio for a clean setup.",
+image:"images/products/wireless-headset.jpg"
+},
+
+{
+id:9,
+name:"Gaming Keyboard",
+category:"setup",
+label:"Gaming Setup",
+type:"keyboard",
+description:"Gaming keyboard designed for PC gaming.",
+image:"images/products/gaming-keyboard.jpg"
+},
+
+{
+id:10,
+name:"Gaming Mouse",
+category:"setup",
+label:"Gaming Setup",
+type:"mouse",
+description:"Responsive gaming mouse for accurate control.",
+image:"images/products/gaming-mouse.jpg"
+},
+
+{
+id:11,
+name:"RGB Gaming Mouse",
+category:"setup",
+label:"Gaming Setup",
+type:"mouse",
+description:"RGB gaming mouse for performance and style.",
+image:"images/products/rgb-mouse.jpg"
+},
+
+{
+id:12,
+name:"Large Gaming Mouse Pad",
+category:"setup",
+label:"Gaming Setup",
+type:"desk",
+description:"Large surface mouse pad for comfortable gaming.",
+image:"images/products/mouse-pad.jpg"
+},
+
+{
+id:13,
+name:"Gaming Speakers",
+category:"audio",
+label:"Audio",
+type:"speaker",
+description:"Gaming speakers for immersive sound.",
+image:"images/products/gaming-speakers.jpg"
+},
+
+{
+id:14,
+name:"Gaming Microphone",
+category:"audio",
+label:"Audio",
+type:"mic",
+description:"Dedicated microphone for gaming and streaming.",
+image:"images/products/gaming-microphone.jpg"
+},
+
+{
+id:15,
+name:"Webcam",
+category:"accessories",
+label:"Accessories",
+type:"camera",
+description:"Webcam for gaming, streaming and video calls.",
+image:"images/products/webcam.jpg"
+},
+
+{
+id:16,
+name:"Controller Charging Station",
+category:"accessories",
+label:"Accessories",
+type:"accessory",
+description:"Keep your controllers charged and organized.",
+image:"images/products/controller-charging-station.jpg"
+},
+
+{
+id:17,
+name:"USB-C Cable",
+category:"accessories",
+label:"Accessories",
+type:"accessory",
+description:"USB-C cable for compatible gaming devices.",
+image:"images/products/usb-c-cable.jpg"
+},
+
+{
+id:18,
+name:"HDMI Cable",
+category:"accessories",
+label:"Accessories",
+type:"accessory",
+description:"HDMI cable for console and display connections.",
+image:"images/products/hdmi-cable.jpg"
+},
+
+{
+id:19,
+name:"PS5 Console Cooling Stand",
+category:"accessories",
+label:"Accessories",
+type:"console",
+description:"Cooling and storage stand for PS5 setups.",
+image:"images/products/ps5-cooling-stand.jpg"
+},
+
+{
+id:20,
+name:"Controller Grips",
+category:"accessories",
+label:"Accessories",
+type:"controller",
+description:"Grip accessories for improved controller comfort.",
+image:"images/products/controller-grips.jpg"
+},
+
+{
+id:21,
+name:"External SSD",
+category:"accessories",
+label:"Accessories",
+type:"storage",
+description:"Fast external storage for compatible devices.",
+image:"images/products/external-ssd.jpg"
+},
+
+{
+id:22,
+name:"External HDD",
+category:"accessories",
+label:"Accessories",
+type:"storage",
+description:"Additional external storage for gaming data.",
+image:"images/products/external-hdd.jpg"
+},
+
+{
+id:23,
+name:"Racing Wheel",
+category:"controllers",
+label:"Controllers",
+type:"controller",
+description:"Racing wheel setup for driving games.",
+image:"images/products/racing-wheel.jpg"
+},
+
+{
+id:24,
+name:"Gaming Chair",
+category:"setup",
+label:"Gaming Setup",
+type:"chair",
+description:"Comfortable gaming chair for long sessions.",
+image:"images/products/gaming-chair.jpg"
+},
+
+{
+id:25,
+name:"Gaming Desk",
+category:"setup",
+label:"Gaming Setup",
+type:"desk",
+description:"Gaming desk designed for a clean setup.",
+image:"images/products/gaming-desk.jpg"
+},
+
+{
+id:26,
+name:"RGB LED Light Strip",
+category:"setup",
+label:"Gaming Setup",
+type:"light",
+description:"RGB lighting for your gaming room.",
+image:"images/products/rgb-led-strip.jpg"
+},
+
+{
+id:27,
+name:"PS5 Controller Skin",
+category:"accessories",
+label:"Accessories",
+type:"controller",
+description:"Protective style skin for PS5 controllers.",
+image:"images/products/ps5-controller-skin.jpg"
+},
+
+{
+id:28,
+name:"Gaming Phone Controller",
+category:"controllers",
+label:"Controllers",
+type:"controller",
+description:"Controller accessory for mobile gaming.",
+image:"images/products/phone-controller.jpg"
+},
+
+{
+id:29,
+name:"USB Gaming Hub",
+category:"accessories",
+label:"Accessories",
+type:"accessory",
+description:"USB hub for connecting compatible devices.",
+image:"images/products/usb-gaming-hub.jpg"
+},
+
+{
+id:30,
+name:"VR Headset",
+category:"accessories",
+label:"Accessories",
+type:"vr",
+description:"Virtual reality headset for immersive gaming.",
+image:"images/products/vr-headset.jpg"
+}
+
+];
+
+
+/* ================= STATE ================= */
+
+let currentFilter="all";
+let cart=[];
+
+
+/* ================= FALLBACK COVER ================= */
+
+function createFallback(product){
+
+let objectClass="";
+
+if(product.type==="console")
+objectClass="object-console";
+
+if(product.type==="controller")
+objectClass="object-controller";
+
+if(product.type==="headset")
+objectClass="object-headset";
+
+if(product.type==="keyboard")
+objectClass="object-keyboard";
+
+if(product.type==="mouse")
+objectClass="object-mouse";
+
+if(product.type==="storage")
+objectClass="object-storage";
+
+if(product.type==="chair")
+objectClass="object-chair";
+
+if(product.type==="desk")
+objectClass="object-desk";
+
+if(product.type==="vr")
+objectClass="object-vr";
+
+
+return `
+
+<div class="fallback-cover">
+
+<div class="cover-brand">
+O.B GAMES
+</div>
+
+<div class="cover-category">
+${product.label}
+</div>
+
+<div class="product-object ${objectClass}">
+</div>
+
+<div class="cover-title">
+${product.name}
+</div>
+
+<div class="cover-line">
+</div>
+
+<div class="cover-bottom">
+
+<span>
+PREMIUM GAMING
+</span>
+
+<span>
+O.B
+</span>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* ================= RENDER ================= */
+
+function renderProducts(){
+
+const grid=
+document.getElementById("productsGrid");
+
+const empty=
+document.getElementById("emptyMessage");
+
+const search=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+const filtered=products.filter(product=>{
+
+const filterMatch=
+currentFilter==="all" ||
+product.category===currentFilter;
+
+const searchMatch=
+product.name
+.toLowerCase()
+.includes(search) ||
+
+product.label
+.toLowerCase()
+.includes(search);
+
+return filterMatch && searchMatch;
+
+});
+
+
+grid.innerHTML="";
+
+
+if(filtered.length===0){
+
+empty.style.display="block";
+
+return;
+
+}
+
+empty.style.display="none";
+
+
+filtered.forEach(product=>{
+
+const card=
+document.createElement("article");
+
+card.className="product-card";
+
+
+card.innerHTML=`
+
+<div class="product-image">
+
+<img
+src="${product.image}"
+alt="${product.name}"
+onload="imageLoaded(this)"
+onerror="imageFailed(this)"
+>
+
+${createFallback(product)}
+
+</div>
+
+
+<div class="product-info">
+
+<div class="product-category">
+${product.label}
+</div>
+
+<h3>
+${product.name}
+</h3>
+
+<p>
+${product.description}
+</p>
+
+
+<div class="product-bottom">
+
+<div class="price">
+Price on Request
+</div>
+
+<button
+class="add-btn"
+onclick="addToCart(${product.id})">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* ================= IMAGE ================= */
+
+function imageLoaded(image){
+
+image.parentElement.classList.add("has-image");
+
+}
+
+
+function imageFailed(image){
+
+image.style.display="none";
+
+}
+
+
+/* ================= FILTER ================= */
+
+document
+.querySelectorAll(".filter-btn")
+.forEach(button=>{
+
+button.addEventListener("click",function(){
+
+document
+.querySelectorAll(".filter-btn")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+this.classList.add("active");
+
+currentFilter=this.dataset.filter;
+
+renderProducts();
+
+});
+
+});
+
+
+/* ================= SEARCH ================= */
+
+document
+.getElementById("searchInput")
+.addEventListener("input",renderProducts);
+
+
+/* ================= CART ================= */
+
+function addToCart(id){
+
+const product=
+products.find(item=>item.id===id);
+
+if(!product)return;
+
+cart.push(product);
+
+updateCart();
+
+openCart();
+
+}
+
+
+function removeFromCart(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function updateCart(){
+
+const items=
+document.getElementById("cartItems");
+
+const count=
+document.getElementById("cartCount");
+
+count.textContent=cart.length;
+
+
+if(cart.length===0){
+
+items.innerHTML=`
+
+<div class="cart-empty">
+
+Your cart is empty.
+
+</div>
+
+`;
+
+updateWhatsApp();
+
+return;
+
+}
+
+
+items.innerHTML="";
+
+
+cart.forEach((product,index)=>{
+
+const item=
+document.createElement("div");
+
+item.className="cart-item";
+
+item.innerHTML=`
+
+<div>
+
+<h4>
+${product.name}
+</h4>
+
+<small>
+${product.label}
+</small>
+
+</div>
+
+<button
+class="remove-item"
+onclick="removeFromCart(${index})">
+
+REMOVE
+
+</button>
+
+`;
+
+items.appendChild(item);
+
+});
+
+
+updateWhatsApp();
+
+}
+
+
+/* ================= WHATSAPP ================= */
+
+function updateWhatsApp(){
+
+const button=
+document.getElementById("whatsappOrder");
+
+
+if(cart.length===0){
+
+button.href=
+"https://wa.me/255717184916";
+
+return;
+
+}
+
+
+let message=
+`Hello O.B GAMES 👋
+
+I would like to ask about these products:
+
+`;
+
+
+cart.forEach((product,index)=>{
+
+message+=
+`${index+1}. ${product.name} — ${product.label}\n`;
+
+});
+
+
+message+=`
+
+Please send me availability and price information.`;
+
+
+button.href=
+"https://wa.me/255717184916?text="+
+encodeURIComponent(message);
+
+}
+
+
+/* ================= CART PANEL ================= */
+
+function openCart(){
+
+document
+.getElementById("cartPanel")
+.classList.add("open");
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cartPanel")
+.classList.remove("open");
+
+}
+
+
+/* ================= START ================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>

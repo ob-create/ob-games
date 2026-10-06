@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>O.B GAMES | Gaming Store</title>
+
+<meta name="description"
+content="O.B GAMES - Gaming products, games, installation, repairs and delivery services in Sumbawanga, Rukwa.">
+
+<style>
+
+/* =====================================================
+   O.B GAMES
+   PREMIUM HOME PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07110d;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --green: #00ff88;
+    --green-dark: #00c96b;
+    --bg: #07110d;
+    --header: #0b1712;
+    --card: #0d1d15;
+    --border: #16462f;
+    --text-light: #a9b9b1;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 17, 13, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    width: min(1200px, 92%);
+    margin: auto;
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* LOGO */
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+/* NAVIGATION */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: #dce8e2;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+/* =====================================================
+   LANGUAGE SELECTOR
+===================================================== */
+
+.language-selector {
+    position: relative;
+    z-index: 2000;
+}
+
+#languageButton {
+    border: 1px solid var(--border);
+    background: #0d1d15;
+    color: white;
+    padding: 10px 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+#languageButton:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.language-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+
+    width: 150px;
+
+    background: #0b1712;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    padding: 7px;
+
+    display: none;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.language-menu.show {
+    display: block;
+}
+
+.language-menu button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: white;
+
+    padding: 11px;
+    border-radius: 8px;
+
+    text-align: left;
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.language-menu button:hover {
+    background: #10291d;
+    color: var(--green);
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+    display: none;
+    border: 1px solid var(--border);
+    background: #0d1d15;
+    color: var(--green);
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(0,255,136,0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(0,255,136,0.07),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    width: min(1200px, 92%);
+    margin: auto;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 13px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    color: var(--green);
+    background: rgba(0,255,136,0.05);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 88px);
+    line-height: 0.95;
+    font-weight: 950;
+    letter-spacing: -3px;
+    max-width: 850px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero-text {
+    max-width: 620px;
+    margin-top: 25px;
+
+    color: var(--text-light);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #03140b;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,255,136,0.2);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: white;
+    background: #0d1d15;
+}
+
+.btn-secondary:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+/* =====================================================
+   FLOATING GAMING CARD
+===================================================== */
+
+.hero-card {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 300px;
+    height: 360px;
+
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,255,136,0.12),
+            rgba(13,29,21,0.9)
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.controller {
+    font-size: 130px;
+    filter: drop-shadow(0 0 25px rgba(0,255,136,0.25));
+}
+
+@keyframes floating {
+    0%,100% {
+        transform: translateY(-50%);
+    }
+
+    50% {
+        transform: translateY(-56%);
+    }
+}
+
+/* =====================================================
+   SPIDER SYSTEM 🕷️
+===================================================== */
+
+.spider {
+    position: absolute;
+    z-index: 8;
+
+    font-size: 35px;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 0 7px rgba(0,255,136,0.25));
+}
+
+/* Spider one roaming */
+
+.spider-one {
+    left: -60px;
+    top: 125px;
+
+    animation:
+        spiderWalk 18s linear infinite,
+        spiderBounce 1s ease-in-out infinite;
+}
+
+@keyframes spiderWalk {
+
+    0% {
+        left: -60px;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        left: 25%;
+        transform: rotate(10deg);
+    }
+
+    50% {
+        left: 55%;
+        transform: rotate(-8deg);
+    }
+
+    75% {
+        left: 80%;
+        transform: rotate(8deg);
+    }
+
+    100% {
+        left: 110%;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes spiderBounce {
+
+    0%,100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 8px;
+    }
+}
+
+/* Spider two */
+
+.spider-two {
+    right: 17%;
+    top: 80px;
+
+    animation: spiderMove 9s ease-in-out infinite;
+}
+
+@keyframes spiderMove {
+
+    0%,100% {
+        top: 80px;
+        right: 17%;
+    }
+
+    25% {
+        top: 180px;
+        right: 28%;
+    }
+
+    50% {
+        top: 110px;
+        right: 8%;
+    }
+
+    75% {
+        top: 250px;
+        right: 23%;
+    }
+}
+
+/* Web string */
+
+.web-line {
+    position: absolute;
+
+    width: 2px;
+    height: 120px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+
+    right: 20%;
+    top: 110px;
+
+    transform-origin: top;
+
+    animation: webDrop 2.5s ease-in-out infinite;
+}
+
+@keyframes webDrop {
+
+    0% {
+        height: 10px;
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    60% {
+        height: 130px;
+        opacity: 0.8;
+    }
+
+    100% {
+        height: 10px;
+        opacity: 0;
+    }
+}
+
+/* Small web particles */
+
+.web-particle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: webParticle 4s linear infinite;
+}
+
+.particle-one {
+    right: 26%;
+    top: 180px;
+}
+
+.particle-two {
+    right: 13%;
+    top: 280px;
+    animation-delay: 1.5s;
+}
+
+.particle-three {
+    right: 34%;
+    top: 330px;
+    animation-delay: 2.5s;
+}
+
+@keyframes webParticle {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+}
+
+/* =====================================================
+   TRUST BAR
+===================================================== */
+
+.trust {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background: #09160f;
+}
+
+.trust-container {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 25px 0;
+}
+
+.trust-item {
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid var(--border);
+}
+
+.trust-item:last-child {
+    border-right: none;
+}
+
+.trust-item strong {
+    display: block;
+    color: var(--green);
+    margin-bottom: 6px;
+}
+
+.trust-item span {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+.section {
+    width: min(1200px, 92%);
+    margin: auto;
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title small {
+    color: var(--green);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    margin-top: 10px;
+    font-size: clamp(30px, 5vw, 48px);
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: 15px auto 0;
+
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* =====================================================
+   CATEGORY CARDS
+===================================================== */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-decoration: none;
+    color: white;
+
+    transition: 0.3s;
+}
+
+.category:hover {
+    transform: translateY(-7px);
+    border-color: var(--green);
+}
+
+.category-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.category h3 {
+    margin-bottom: 10px;
+}
+
+.category p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* =====================================================
+   FEATURED PRODUCTS
+===================================================== */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--green);
+}
+
+.product-image {
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,136,0.12),
+            transparent 60%
+        );
+
+    font-size: 75px;
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.service {
+    padding: 25px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.service:hover {
+    border-color: var(--green);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.service h3 {
+    margin-bottom: 8px;
+}
+
+.service p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* =====================================================
+   WHY US
+===================================================== */
+
+.why-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+    align-items: center;
+}
+
+.why-text h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 20px;
+}
+
+.why-text h2 span {
+    color: var(--green);
+}
+
+.why-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.why-list {
+    margin-top: 25px;
+
+    display: grid;
+    gap: 15px;
+}
+
+.why-list div {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.check {
+    color: var(--green);
+    font-size: 20px;
+}
+
+.why-list p {
+    color: white;
+}
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location-box {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,136,0.10),
+            rgba(13,29,21,0.95)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 45px;
+
+    text-align: center;
+}
+
+.location-box .icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.location-box h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.location-box p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.final-cta {
+    text-align: center;
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,136,0.12),
+            transparent 60%
+        );
+}
+
+.final-cta h2 {
+    font-size: clamp(35px, 6vw, 60px);
+    margin-bottom: 15px;
+}
+
+.final-cta p {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.final-cta .btn {
+    margin-top: 25px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #050c08;
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding: 55px 0 25px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 35px;
+}
+
+.footer-brand p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-top: 15px;
+    max-width: 350px;
+}
+
+.footer-column h3 {
+    color: var(--green);
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.footer-column a {
+    display: block;
+
+    color: #b9c9c1;
+    text-decoration: none;
+
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: var(--green);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding: 20px 0;
+
+    text-align: center;
+
+    color: #718078;
+    font-size: 13px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        position: absolute;
+
+        top: 75px;
+        left: 4%;
+        right: 4%;
+
+        background: #0b1712;
+
+        border: 1px solid var(--border);
+        border-radius: 15px;
+
+        padding: 20px;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 8px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-card {
+        opacity: 0.2;
+        right: -70px;
+    }
+
+    .trust-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories,
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .why-us {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .hero-card {
+        display: none;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-container {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .trust-item:last-child {
+        border-bottom: none;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .location-box {
+        padding: 30px 20px;
+    }
+
+    .location-box h2 {
+        font-size: 27px;
+    }
+
+    .spider-one {
+        top: 300px;
+    }
+
+    .spider-two {
+        right: 8%;
+    }
+}
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="navbar">
+
+    <a href="index.html" class="logo">
+        O.B <span>GAMES</span>
+    </a>
+
+    <button
+        class="menu-toggle"
+        onclick="toggleMobileMenu()"
+        aria-label="Open menu">
+        ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html" data-translate="home">
+            Home
+        </a>
+
+        <a href="products.html" data-translate="products">
+            Products
+        </a>
+
+        <a href="games.html" data-translate="games">
+            Games
+        </a>
+
+        <a href="services.html" data-translate="services">
+            Services
+        </a>
+
+        <a href="about.html" data-translate="about">
+            About
+        </a>
+
+        <a href="contact.html" data-translate="contact">
+            Contact
+        </a>
+
+        <!-- LANGUAGE -->
+
+        <div class="language-selector">
+
+            <button
+                id="languageButton"
+                type="button"
+                onclick="toggleLanguageMenu()">
+
+                🇬🇧 English ▾
+
+            </button>
+
+            <div
+                id="languageMenu"
+                class="language-menu">
+
+                <button
+                    type="button"
+                    onclick="changeLanguage('en')">
+
+                    🇬🇧 English
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="changeLanguage('sw')">
+
+                    🇹🇿 Kiswahili
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <!-- SPIDER ONE 🕷️ -->
+
+    <div class="spider spider-one">
+        🕷️
+    </div>
+
+    <!-- SPIDER TWO 🕷️ -->
+
+    <div class="spider spider-two">
+        🕷️
+    </div>
+
+    <!-- WEB -->
+
+    <div class="web-line"></div>
+
+    <div class="web-particle particle-one"></div>
+    <div class="web-particle particle-two"></div>
+    <div class="web-particle particle-three"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-badge" data-translate="welcome">
+            WELCOME TO O.B GAMES
+        </div>
+
+        <h1>
+            <span data-translate="levelUp">
+                LEVEL UP
+            </span>
+            <br>
+
+            <span
+                style="color:white;"
+                data-translate="yourGame">
+
+                YOUR GAME.
+
+            </span>
+        </h1>
+
+        <p class="hero-text" data-translate="heroText">
+
+            Your gaming destination for consoles, controllers,
+            games, gaming accessories, installation, repairs
+            and reliable gaming services.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="products.html"
+                class="btn btn-primary"
+                data-translate="shopProducts">
+
+                🛒 SHOP PRODUCTS
+
+            </a>
+
+            <a
+                href="games.html"
+                class="btn btn-secondary"
+                data-translate="exploreGames">
+
+                🎮 EXPLORE GAMES
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FLOATING CONTROLLER -->
+
+    <div class="hero-card">
+
+        <div class="controller">
+            🎮
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRUST BAR
+===================================================== -->
+
+<section class="trust">
+
+<div class="trust-container">
+
+    <div class="trust-item">
+
+        <strong>🎮 GAMING</strong>
+
+        <span data-translate="gamingProducts">
+            Gaming Products
+        </span>
+
+    </div>
+
+    <div class="trust-item">
+
+        <strong>🛠️ SUPPORT</strong>
+
+        <span data-translate="gamingServices">
+            Gaming Services
+        </span>
+
+    </div>
+
+    <div class="trust-item">
+
+        <strong>🚚 DELIVERY</strong>
+
+        <span data-translate="delivery">
+            Delivery
+        </span>
+
+    </div>
+
+    <div class="trust-item">
+
+        <strong>📍 RUKWA</strong>
+
+        <span>
+            Sumbawanga
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <small>O.B GAMES</small>
+
+    <h2 data-translate="everythingGaming">
+        EVERYTHING GAMING
+    </h2>
+
+    <p data-translate="categoryText">
+
+        Everything you need to enjoy your gaming experience
+        in one place.
+
+    </p>
+
+</div>
+
+
+<div class="categories">
+
+    <a href="products.html" class="category">
+
+        <div class="category-icon">
+            🎮
+        </div>
+
+        <h3 data-translate="gamingProducts">
+            Gaming Products
+        </h3>
+
+        <p data-translate="productsDescription">
+
+            Controllers, consoles, headsets,
+            keyboards, mice and gaming accessories.
+
+        </p>
+
+    </a>
+
+
+    <a href="games.html" class="category">
+
+        <div class="category-icon">
+            💿
+        </div>
+
+        <h3 data-translate="games">
+            Games
+        </h3>
+
+        <p data-translate="gamesDescription">
+
+            Find games for PS3, PS4 and PS5
+            and build your gaming collection.
+
+        </p>
+
+    </a>
+
+
+    <a href="services.html" class="category">
+
+        <div class="category-icon">
+            🛠️
+        </div>
+
+        <h3 data-translate="gamingServices">
+            Gaming Services
+        </h3>
+
+        <p data-translate="servicesDescription">
+
+            Game installation, console repair,
+            controller repair and gaming support.
+
+        </p>
+
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED PRODUCTS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <small>SHOP</small>
+
+    <h2 data-translate="featuredProducts">
+        FEATURED PRODUCTS
+    </h2>
+
+    <p data-translate="featuredText">
+
+        Upgrade your setup with gaming equipment
+        made for better play.
+
+    </p>
+
+</div>
+
+
+<div class="products-grid">
+
+    <div class="product-card">
+
+        <div class="product-image">
+            🎮
+        </div>
+
+        <div class="product-info">
+
+            <h3>
+                PS5 DualSense Controller
+            </h3>
+
+            <p data-translate="availableOnRequest">
+                Price available on request.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="product-card">
+
+        <div class="product-image">
+            🎧
+        </div>
+
+        <div class="product-info">
+
+            <h3>
+                Gaming Headset
+            </h3>
+
+            <p data-translate="availableOnRequest">
+                Price available on request.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="product-card">
+
+        <div class="product-image">
+            ⌨️
+        </div>
+
+        <div class="product-info">
+
+            <h3>
+                Gaming Keyboard
+            </h3>
+
+            <p data-translate="availableOnRequest">
+                Price available on request.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="product-card">
+
+        <div class="product-image">
+            🖱️
+        </div>
+
+        <div class="product-info">
+
+            <h3>
+                Gaming Mouse
+            </h3>
+
+            <p data-translate="availableOnRequest">
+                Price available on request.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div style="text-align:center; margin-top:35px;">
+
+    <a
+        href="products.html"
+        class="btn btn-primary"
+        data-translate="viewProducts">
+
+        VIEW PRODUCTS →
+
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <small>O.B GAMES SUPPORT</small>
+
+    <h2 data-translate="gamingServices">
+        GAMING SERVICES
+    </h2>
+
+    <p data-translate="serviceIntro">
+
+        We don't only sell gaming products.
+        We also help gamers keep their systems running.
+
+    </p>
+
+</div>
+
+
+<div class="services">
+
+    <div class="service">
+
+        <div class="service-icon">
+            💿
+        </div>
+
+        <h3 data-translate="gameInstallation">
+            Game Installation
+        </h3>
+
+        <p data-translate="installationText">
+
+            Game installation and setup for PS3,
+            PS4 and PS5 using legally obtained games.
+
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🛠️
+        </div>
+
+        <h3 data-translate="consoleRepair">
+            Console Repair
+        </h3>
+
+        <p data-translate="consoleRepairText">
+
+            Gaming console troubleshooting,
+            maintenance and repair support.
+
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🎮
+        </div>
+
+        <h3 data-translate="controllerRepair">
+            Controller Repair
+        </h3>
+
+        <p data-translate="controllerRepairText">
+
+            Controller and gamepad repair
+            and troubleshooting.
+
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🚚
+        </div>
+
+        <h3 data-translate="delivery">
+            Delivery
+        </h3>
+
+        <p data-translate="deliveryText">
+
+            We can arrange delivery services
+            across different regions.
+
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🔄
+        </div>
+
+        <h3 data-translate="gameSetup">
+            Game Setup
+        </h3>
+
+        <p data-translate="setupText">
+
+            Gaming software and system setup
+            support.
+
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            📞
+        </div>
+
+        <h3 data-translate="gamingSupport">
+            Gaming Support
+        </h3>
+
+        <p data-translate="supportText">
+
+            Get help with gaming setup,
+            products and gaming systems.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<div style="text-align:center; margin-top:35px;">
+
+    <a
+        href="services.html"
+        class="btn btn-secondary"
+        data-translate="viewServices">
+
+        VIEW SERVICES →
+
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY O.B GAMES
+===================================================== -->
+
+<section class="section">
+
+<div class="why-us">
+
+    <div class="why-text">
+
+        <small style="color:#00ff88; font-weight:800;">
+            O.B GAMES
+        </small>
+
+        <h2>
+
+            <span data-translate="why">
+                WHY
+            </span>
+
+            O.B GAMES?
+
+        </h2>
+
+        <p data-translate="whyText">
+
+            We are building a gaming brand focused on
+            products, games, services and support for gamers.
+
+        </p>
+
+
+        <div class="why-list">
+
+            <div>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <p data-translate="quality">
+                    Quality gaming products
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <p data-translate="gamingFirst">
+                    Gaming comes first
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <p data-translate="trustedService">
+                    Reliable gaming services
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <p data-translate="regionalDelivery">
+                    Delivery across regions
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="location-box">
+
+        <div class="icon">
+            📍
+        </div>
+
+        <h2 data-translate="weAreHere">
+            WE ARE HERE
+        </h2>
+
+        <p data-translate="locationText">
+
+            Sumbawanga Mjini, Rukwa —
+            Karibu na CCM Mkoa,
+            mkabala na Roundabout ya Two Way.
+
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+    <h2 data-translate="readyToGame">
+        READY TO GAME?
+    </h2>
+
+    <p data-translate="ctaText">
+
+        Explore our products, discover games,
+        or contact O.B GAMES today.
+
+    </p>
+
+
+    <a
+        href="contact.html"
+        class="btn btn-primary"
+        data-translate="contactUs">
+
+        CONTACT US
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-container">
+
+
+    <div class="footer-brand">
+
+        <a href="index.html" class="logo">
+            O.B <span>GAMES</span>
+        </a>
+
+        <p data-translate="footerText">
+
+            Gaming products, games, installation,
+            repairs and gaming support.
+
+        </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3 data-translate="quickLinks">
+            QUICK LINKS
+        </h3>
+
+        <a href="index.html" data-translate="home">
+            Home
+        </a>
+
+        <a href="products.html" data-translate="products">
+            Products
+        </a>
+
+        <a href="games.html" data-translate="games">
+            Games
+        </a>
+
+        <a href="services.html" data-translate="services">
+            Services
+        </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3 data-translate="company">
+            COMPANY
+        </h3>
+
+        <a href="about.html" data-translate="about">
+            About
+        </a>
+
+        <a href="contact.html" data-translate="contact">
+            Contact
+        </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3 data-translate="connect">
+            CONNECT
+        </h3>
+
+        <a
+            href="https://wa.me/255717184916"
+            target="_blank">
+
+            WhatsApp
+
+        </a>
+
+        <a
+            href="https://www.instagram.com/o.b_games/"
+            target="_blank">
+
+            Instagram
+
+        </a>
+
+        <a
+            href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+            target="_blank">
+
+            TikTok
+
+        </a>
+
+        <a href="tel:0622802319">
+
+            0622 802 319
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 O.B GAMES.
+    <span data-translate="allRights">
+        All Rights Reserved.
+    </span>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     LANGUAGE SYSTEM
+===================================================== -->
+
+<script src="language.js"></script>
+
+
+<script>
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMobileMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("active");
+
+}
+
+
+/* =====================================================
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
+===================================================== */
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", function() {
+
+        document
+            .getElementById("navLinks")
+            .classList.remove("active");
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>

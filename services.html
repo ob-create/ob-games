@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O.B GAMES | Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #07110d;
+            --header: #0b1712;
+            --card: #0d1d15;
+            --card2: #10251a;
+            --border: #16462f;
+            --green: #00ff88;
+            --green-dark: #0d3d28;
+            --text: #ffffff;
+            --muted: #9fb4a9;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: rgba(11, 23, 18, 0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            min-height: 75px;
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #d9e7df;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--green);
+        }
+
+        /* ================= LANGUAGE ================= */
+
+        .language-selector {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        #languageButton {
+            background: #10271b;
+            color: white;
+            border: 1px solid #1c5a3b;
+            padding: 9px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #languageButton:hover {
+            border-color: var(--green);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: #0d1d15;
+            border: 1px solid #1c5a3b;
+            border-radius: 10px;
+            overflow: hidden;
+            min-width: 150px;
+            z-index: 2000;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .language-menu.show {
+            display: block;
+        }
+
+        .language-menu button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-menu button:hover {
+            background: #123c27;
+            color: var(--green);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--green);
+            color: var(--green);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 76px);
+            line-height: 1;
+            margin-bottom: 22px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 65px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: clamp(25px, 4vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        .intro h2 span {
+            color: var(--green);
+        }
+
+        .intro p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            position: relative;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16, 37, 26, 0.96),
+                    rgba(9, 23, 16, 0.96)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 25px;
+            min-height: 290px;
+
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--green);
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.35),
+                0 0 25px rgba(0, 255, 136, 0.06);
+        }
+
+        .service-card::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: -65px;
+            top: -65px;
+            border-radius: 50%;
+            background: rgba(0, 255, 136, 0.06);
+        }
+
+        .service-number {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .service-icon {
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #10291c;
+            border: 1px solid #205d3e;
+            border-radius: 14px;
+
+            font-size: 29px;
+            margin-bottom: 22px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ================= FEATURED SERVICE ================= */
+
+        .featured-service {
+            max-width: 1200px;
+            margin: 0 auto 75px;
+            padding: 0 20px;
+        }
+
+        .featured-box {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #10291c,
+                    #07110d
+                );
+
+            border: 1px solid var(--green);
+            border-radius: 20px;
+            padding: 45px;
+        }
+
+        .featured-box::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: -80px;
+            top: -130px;
+            border-radius: 50%;
+            background: rgba(0, 255, 136, 0.08);
+        }
+
+        .featured-content {
+            max-width: 720px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-label {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .featured-box h2 {
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .featured-box p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .platform {
+            padding: 9px 15px;
+            border: 1px solid #276b49;
+            border-radius: 30px;
+            background: rgba(0, 255, 136, 0.05);
+            color: var(--green);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ================= PROCESS ================= */
+
+        .process-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .process-step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px 18px;
+            text-align: center;
+        }
+
+        .process-step strong {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+            background: var(--green);
+            color: #06100b;
+            font-size: 14px;
+        }
+
+        .process-step h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* ================= DELIVERY ================= */
+
+        .delivery-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .delivery-box {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        .delivery-text h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .delivery-text h2 span {
+            color: var(--green);
+        }
+
+        .delivery-text p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .delivery-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .delivery-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #10251a;
+            border: 1px solid var(--border);
+            padding: 13px;
+            border-radius: 10px;
+            color: #d8e5de;
+            font-size: 14px;
+        }
+
+        .delivery-item span {
+            color: var(--green);
+            font-size: 19px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta-section {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .cta-box {
+            background:
+                linear-gradient(
+                    145deg,
+                    #10291c,
+                    #07110d
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 25px;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 15px;
+        }
+
+        .cta-box h2 span {
+            color: var(--green);
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            margin: auto auto 25px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--green);
+            color: #06100b;
+            padding: 14px 23px;
+            border-radius: 9px;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.18);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: #0b1712;
+            padding: 45px 20px 25px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-brand h2 {
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p,
+        footer li {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: white;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 7px;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #71877b;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .delivery-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                padding: 14px 12px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .services-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-box {
+                padding: 30px 22px;
+            }
+
+            .delivery-box {
+                padding: 25px 20px;
+            }
+
+            .delivery-text h2 {
+                font-size: 27px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+
+    <header>
+
+        <div class="nav">
+
+            <a href="index.html" class="logo">
+                O.B <span>GAMES</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html"
+                   data-translate="home">
+                    Home
+                </a>
+
+                <a href="products.html"
+                   data-translate="products">
+                    Products
+                </a>
+
+                <a href="games.html"
+                   data-translate="games">
+                    Games
+                </a>
+
+                <a href="services.html"
+                   class="active"
+                   data-translate="services">
+                    Services
+                </a>
+
+                <a href="about.html"
+                   data-translate="about">
+                    About
+                </a>
+
+                <a href="contact.html"
+                   data-translate="contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="language-selector">
+
+                <button
+                    id="languageButton"
+                    type="button"
+                    onclick="toggleLanguageMenu()">
+
+                    🇬🇧 English ▾
+
+                </button>
+
+
+                <div
+                    id="languageMenu"
+                    class="language-menu">
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('en')">
+
+                        🇬🇧 English
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('sw')">
+
+                        🇹🇿 Kiswahili
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         HERO
+         ================================================= -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            O.B GAMES SERVICES
+        </div>
+
+
+        <h1>
+
+            <span data-translate="servicesPageTitle">
+                GAMING SERVICES
+            </span>
+
+        </h1>
+
+
+        <p data-translate="servicesPageText">
+
+            Professional gaming support for consoles,
+            games, controllers and complete gaming setups.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         INTRO
+         ================================================= -->
+
+    <section class="intro">
+
+        <h2>
+
+            <span>GAME.</span>
+            SETUP.
+            SUPPORT.
+
+        </h2>
+
+
+        <p data-translate="serviceIntro">
+
+            Professional gaming services for consoles,
+            controllers, games and complete gaming setups.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         FEATURED GAME INSTALLATION
+         ================================================= -->
+
+    <section class="featured-service">
+
+        <div class="featured-box">
+
+            <div class="featured-content">
+
+                <div class="featured-label">
+                    O.B GAMES — FEATURED SERVICE
+                </div>
+
+
+                <h2
+                    data-translate="gameInstallationTitle">
+
+                    Game Installation & Setup
+
+                </h2>
+
+
+                <p
+                    data-translate="gameInstallationDescription">
+
+                    We provide game installation and setup
+                    support for legally obtained games on
+                    PS3, PS4 and PS5.
+
+                </p>
+
+
+                <div class="platforms">
+
+                    <div class="platform">
+                        🎮 PS3
+                    </div>
+
+                    <div class="platform">
+                        🎮 PS4
+                    </div>
+
+                    <div class="platform">
+                        🎮 PS5
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SERVICES GRID
+         ================================================= -->
+
+    <section class="services-section">
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 01 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 01
+                </div>
+
+                <div class="service-icon">
+                    🎮
+                </div>
+
+                <h3 data-translate="gameInstallation">
+                    Game Installation
+                </h3>
+
+                <p data-translate="installationText">
+
+                    Game installation and loading support
+                    for legally obtained games on PS3,
+                    PS4 and PS5.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 02 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 02
+                </div>
+
+                <div class="service-icon">
+                    ⚙️
+                </div>
+
+                <h3 data-translate="gameSetup">
+                    Game Setup
+                </h3>
+
+                <p data-translate="setupText">
+
+                    Gaming setup support including system
+                    configuration, game setup and basic
+                    optimization.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 03 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 03
+                </div>
+
+                <div class="service-icon">
+                    💾
+                </div>
+
+                <h3 data-translate="gameTransfer">
+                    Game Transfer & Data Setup
+                </h3>
+
+                <p data-translate="gameTransferText">
+
+                    Support with transferring games and
+                    organizing gaming data between compatible
+                    storage devices.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 04 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 04
+                </div>
+
+                <div class="service-icon">
+                    🔄
+                </div>
+
+                <h3 data-translate="gameUpdates">
+                    Game Updates & Setup Support
+                </h3>
+
+                <p data-translate="gameUpdatesText">
+
+                    Help with game updates, system
+                    configuration and basic setup issues.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 05 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 05
+                </div>
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3 data-translate="softwareSupport">
+                    Gaming Software Support
+                </h3>
+
+                <p data-translate="softwareSupportText">
+
+                    Support with common gaming software
+                    and configuration problems.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 06 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 06
+                </div>
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3 data-translate="consoleRepair">
+                    Console Repair
+                </h3>
+
+                <p data-translate="consoleRepairText">
+
+                    Gaming console troubleshooting,
+                    maintenance and repair support.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 07 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 07
+                </div>
+
+                <div class="service-icon">
+                    🕹️
+                </div>
+
+                <h3 data-translate="controllerRepair">
+                    Controller Repair
+                </h3>
+
+                <p data-translate="controllerRepairText">
+
+                    Controller and gamepad troubleshooting,
+                    maintenance and repair.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 08 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 08
+                </div>
+
+                <div class="service-icon">
+                    🚚
+                </div>
+
+                <h3 data-translate="deliveryServices">
+                    Delivery Services
+                </h3>
+
+                <p data-translate="deliveryServicesText">
+
+                    Gaming products can be delivered to
+                    customers across different regions.
+
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 09 -->
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    SERVICE 09
+                </div>
+
+                <div class="service-icon">
+                    🎯
+                </div>
+
+                <h3 data-translate="setupSupport">
+                    Gaming Setup Support
+                </h3>
+
+                <p data-translate="setupSupportText">
+
+                    Get help setting up your console,
+                    controller, display and gaming accessories.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         HOW IT WORKS
+         ================================================= -->
+
+    <section class="process-section">
+
+        <div class="section-title">
+
+            <h2>
+                HOW IT WORKS
+            </h2>
+
+            <p>
+                Simple process. Straight to gaming.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <strong>01</strong>
+
+                <h3>
+                    Contact Us
+                </h3>
+
+                <p>
+                    Tell us what gaming service
+                    you need.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <strong>02</strong>
+
+                <h3>
+                    Explain the Problem
+                </h3>
+
+                <p>
+                    Give us the details about
+                    your console, controller or setup.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <strong>03</strong>
+
+                <h3>
+                    Get Support
+                </h3>
+
+                <p>
+                    We discuss the available
+                    service and next steps.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <strong>04</strong>
+
+                <h3>
+                    Get Gaming
+                </h3>
+
+                <p>
+                    Get your gaming setup ready
+                    and back to the game.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         DELIVERY
+         ================================================= -->
+
+    <section class="delivery-section">
+
+        <div class="delivery-box">
+
+
+            <div class="delivery-text">
+
+                <h2>
+
+                    <span>
+                        DELIVERY
+                    </span>
+                    ACROSS REGIONS
+
+                </h2>
+
+
+                <p data-translate="deliveryServicesText">
+
+                    Gaming products can be delivered to
+                    customers across different regions.
+
+                </p>
+
+            </div>
+
+
+            <div class="delivery-list">
+
+                <div class="delivery-item">
+
+                    <span>📦</span>
+
+                    Gaming Products
+
+                </div>
+
+
+                <div class="delivery-item">
+
+                    <span>🎮</span>
+
+                    Consoles & Controllers
+
+                </div>
+
+
+                <div class="delivery-item">
+
+                    <span>🎧</span>
+
+                    Gaming Accessories
+
+                </div>
+
+
+                <div class="delivery-item">
+
+                    <span>🚚</span>
+
+                    Regional Delivery
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CTA
+         ================================================= -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <h2>
+
+                READY TO
+                <span>GAME?</span>
+
+            </h2>
+
+
+            <p data-translate="ctaText">
+
+                Need a gaming product, game service
+                or support? Get in touch with O.B GAMES.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="cta-button"
+                data-translate="contactUs">
+
+                CONTACT US
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    O.B GAMES
+                </h2>
+
+                <p data-translate="footerText">
+
+                    Gaming products, games and gaming
+                    services — all in one place.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="quickLinks">
+                    QUICK LINKS
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="index.html"
+                            data-translate="home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="products.html"
+                            data-translate="products">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="games.html"
+                            data-translate="games">
+                            Games
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="services.html"
+                            data-translate="services">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="company">
+                    COMPANY
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="about.html"
+                            data-translate="about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="contact.html"
+                            data-translate="contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="connect">
+                    CONNECT
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="https://wa.me/255717184916"
+                            target="_blank">
+                            WhatsApp
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.instagram.com/o.b_games/"
+                            target="_blank">
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+                            target="_blank">
+                            TikTok
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 O.B GAMES —
+
+            <span data-translate="allRights">
+                All Rights Reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =================================================
+         LANGUAGE SYSTEM
+         ================================================= -->
+
+    <script src="language.js"></script>
+
+</body>
+
+</html>

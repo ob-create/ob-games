@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O.B GAMES | Contact Us</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #07110d;
+            --header: #0b1712;
+            --card: #0d1d15;
+            --card2: #10251a;
+            --border: #16462f;
+            --green: #00ff88;
+            --text: #ffffff;
+            --muted: #9fb4a9;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: rgba(11, 23, 18, 0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            min-height: 75px;
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #d9e7df;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--green);
+        }
+
+        /* ================= LANGUAGE ================= */
+
+        .language-selector {
+            position: relative;
+        }
+
+        #languageButton {
+            background: #10271b;
+            color: white;
+            border: 1px solid #1c5a3b;
+            padding: 9px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #languageButton:hover {
+            border-color: var(--green);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: #0d1d15;
+            border: 1px solid #1c5a3b;
+            border-radius: 10px;
+            overflow: hidden;
+            min-width: 150px;
+            z-index: 2000;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .language-menu.show {
+            display: block;
+        }
+
+        .language-menu button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-menu button:hover {
+            background: #123c27;
+            color: var(--green);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px 65px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--green);
+            color: var(--green);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            margin-bottom: 22px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ================= CONTACT SECTION ================= */
+
+        .contact-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 25px;
+        }
+
+        /* ================= CONTACT INFO ================= */
+
+        .contact-info {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .contact-info h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info h2 span {
+            color: var(--green);
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #10291c;
+            border: 1px solid #205d3e;
+            border-radius: 11px;
+            font-size: 21px;
+        }
+
+        .info-item h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .info-item p,
+        .info-item a {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .info-item a:hover {
+            color: var(--green);
+        }
+
+        /* ================= FORM ================= */
+
+        .contact-form {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .contact-form h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form h2 span {
+            color: var(--green);
+        }
+
+        .contact-form > p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            background: #08150f;
+            color: white;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.05);
+        }
+
+        .form-group textarea {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: var(--green);
+            color: #06100b;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.16);
+        }
+
+        /* ================= SOCIAL ================= */
+
+        .social-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .social-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--green);
+        }
+
+        .social-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .social-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .social-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .social-link {
+            display: inline-block;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ================= LOCATION ================= */
+
+        .location-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .location-box {
+            background:
+                linear-gradient(
+                    120deg,
+                    #10291c,
+                    #07110d
+                );
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .location-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .location-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .location-box h2 span {
+            color: var(--green);
+        }
+
+        .location-box p {
+            max-width: 750px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: #0b1712;
+            padding: 45px 20px 25px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-brand h2 {
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p,
+        footer li {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 7px;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #71877b;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                padding: 14px 12px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 24px 20px;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-box {
+                padding: 30px 20px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="nav">
+
+            <a href="index.html" class="logo">
+                O.B <span>GAMES</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html"
+                   data-translate="home">
+                    Home
+                </a>
+
+                <a href="products.html"
+                   data-translate="products">
+                    Products
+                </a>
+
+                <a href="games.html"
+                   data-translate="games">
+                    Games
+                </a>
+
+                <a href="services.html"
+                   data-translate="services">
+                    Services
+                </a>
+
+                <a href="about.html"
+                   data-translate="about">
+                    About
+                </a>
+
+                <a href="contact.html"
+                   class="active"
+                   data-translate="contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="language-selector">
+
+                <button
+                    id="languageButton"
+                    type="button"
+                    onclick="toggleLanguageMenu()">
+
+                    🇬🇧 English ▾
+
+                </button>
+
+
+                <div
+                    id="languageMenu"
+                    class="language-menu">
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('en')">
+
+                        🇬🇧 English
+
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('sw')">
+
+                        🇹🇿 Kiswahili
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            O.B GAMES
+        </div>
+
+        <h1>
+
+            LET'S
+            <span>TALK GAMING.</span>
+
+        </h1>
+
+        <p data-translate="contactPageText">
+
+            Have a question, need a gaming product,
+            service or support? Get in touch with O.B GAMES.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-grid">
+
+
+            <!-- CONTACT INFO -->
+
+            <div class="contact-info">
+
+                <h2>
+
+                    CONTACT
+                    <span>US</span>
+
+                </h2>
+
+                <p data-translate="contactInfoText">
+
+                    Reach O.B GAMES through any of the
+                    channels below.
+
+                </p>
+
+
+                <!-- PHONE -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3 data-translate="phone">
+                            Phone
+                        </h3>
+
+                        <a href="tel:0622802319">
+                            0622 802 319
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHATSAPP -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            WhatsApp
+                        </h3>
+
+                        <a
+                            href="https://wa.me/255717184916"
+                            target="_blank">
+
+                            +255 717 184 916
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INSTAGRAM -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📸
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Instagram
+                        </h3>
+
+                        <a
+                            href="https://www.instagram.com/o.b_games/"
+                            target="_blank">
+
+                            @o.b_games
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TIKTOK -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🎵
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            TikTok
+                        </h3>
+
+                        <a
+                            href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+                            target="_blank">
+
+                            OB Game Sumbawanga
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3 data-translate="location">
+                            Location
+                        </h3>
+
+                        <p data-translate="locationText">
+
+                            Sumbawanga Mjini, Rukwa —
+                            Karibu na CCM Mkoa,
+                            mkabala na Roundabout ya Two Way.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-form">
+
+                <h2>
+
+                    SEND US A
+                    <span>MESSAGE</span>
+
+                </h2>
+
+                <p data-translate="formText">
+
+                    Fill in the form below and your message
+                    will be prepared for WhatsApp.
+
+                </p>
+
+
+                <form id="contactForm">
+
+
+                    <div class="form-group">
+
+                        <label for="name"
+                               data-translate="yourName">
+
+                            Your Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            data-translate-placeholder="yourNamePlaceholder"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone"
+                               data-translate="yourPhone">
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            data-translate-placeholder="yourPhonePlaceholder"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message"
+                               data-translate="yourMessage">
+
+                            Your Message
+
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            data-translate-placeholder="yourMessagePlaceholder"
+                            required></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        data-translate="sendWhatsApp">
+
+                        SEND VIA WHATSAPP
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SOCIAL ================= -->
+
+    <section class="social-section">
+
+        <div class="section-title">
+
+            <h2 data-translate="connectWithUs">
+                CONNECT WITH US
+            </h2>
+
+            <p data-translate="socialText">
+                Follow O.B GAMES and stay connected.
+            </p>
+
+        </div>
+
+
+        <div class="social-grid">
+
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    💬
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    +255 717 184 916
+                </p>
+
+                <a
+                    class="social-link"
+                    href="https://wa.me/255717184916"
+                    target="_blank">
+
+                    CHAT NOW →
+
+                </a>
+
+            </div>
+
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    📸
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    @o.b_games
+                </p>
+
+                <a
+                    class="social-link"
+                    href="https://www.instagram.com/o.b_games/"
+                    target="_blank">
+
+                    FOLLOW US →
+
+                </a>
+
+            </div>
+
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    🎵
+                </div>
+
+                <h3>
+                    TikTok
+                </h3>
+
+                <p>
+                    OB Game Sumbawanga
+                </p>
+
+                <a
+                    class="social-link"
+                    href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+                    target="_blank">
+
+                    FIND US →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LOCATION ================= -->
+
+    <section class="location-section">
+
+        <div class="location-box">
+
+            <div class="location-icon">
+                📍
+            </div>
+
+            <h2>
+
+                COME VISIT
+                <span>O.B GAMES</span>
+
+            </h2>
+
+            <p data-translate="locationText">
+
+                Sumbawanga Mjini, Rukwa —
+                Karibu na CCM Mkoa,
+                mkabala na Roundabout ya Two Way.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    O.B GAMES
+                </h2>
+
+                <p data-translate="footerText">
+
+                    Gaming products, games and gaming
+                    services — all in one place.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="quickLinks">
+                    QUICK LINKS
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html"
+                           data-translate="home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html"
+                           data-translate="products">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="games.html"
+                           data-translate="games">
+                            Games
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="services.html"
+                           data-translate="services">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="company">
+                    COMPANY
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="about.html"
+                           data-translate="about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html"
+                           data-translate="contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="connect">
+                    CONNECT
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="https://wa.me/255717184916"
+                            target="_blank">
+                            WhatsApp
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.instagram.com/o.b_games/"
+                            target="_blank">
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+                            target="_blank">
+                            TikTok
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 O.B GAMES —
+
+            <span data-translate="allRights">
+                All Rights Reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= LANGUAGE ================= -->
+
+    <script src="language.js"></script>
+
+
+    <!-- ================= WHATSAPP FORM ================= -->
+
+    <script>
+
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value.trim();
+
+                const phone =
+                    document.getElementById("phone").value.trim();
+
+                const message =
+                    document.getElementById("message").value.trim();
+
+
+                const whatsappMessage =
+`Hello O.B GAMES 👋
+
+Name: ${name}
+Phone: ${phone}
+
+Message:
+${message}`;
+
+
+                const whatsappURL =
+                    "https://wa.me/255717184916?text=" +
+                    encodeURIComponent(whatsappMessage);
+
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O.B GAMES | About Us</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #07110d;
+            --header: #0b1712;
+            --card: #0d1d15;
+            --border: #16462f;
+            --green: #00ff88;
+            --text: #ffffff;
+            --muted: #9fb4a9;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: rgba(11, 23, 18, 0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            min-height: 75px;
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #d9e7df;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--green);
+        }
+
+        /* ================= LANGUAGE ================= */
+
+        .language-selector {
+            position: relative;
+        }
+
+        #languageButton {
+            background: #10271b;
+            color: white;
+            border: 1px solid #1c5a3b;
+            padding: 9px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #languageButton:hover {
+            border-color: var(--green);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: #0d1d15;
+            border: 1px solid #1c5a3b;
+            border-radius: 10px;
+            overflow: hidden;
+            min-width: 150px;
+            z-index: 2000;
+        }
+
+        .language-menu.show {
+            display: block;
+        }
+
+        .language-menu button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-menu button:hover {
+            background: #123c27;
+            color: var(--green);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 85px 20px 70px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--green);
+            color: var(--green);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            margin-bottom: 22px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ================= STORY ================= */
+
+        .story-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .story-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .story-content,
+        .story-highlight {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 35px;
+        }
+
+        .story-content h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .story-content h2 span {
+            color: var(--green);
+        }
+
+        .story-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .story-highlight {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    145deg,
+                    #10291c,
+                    #07110d
+                );
+            border-color: #205c3d;
+        }
+
+        .story-highlight::before {
+            content: "O.B";
+            position: absolute;
+            right: -15px;
+            bottom: -45px;
+            font-size: 180px;
+            font-weight: 900;
+            color: rgba(0, 255, 136, 0.045);
+        }
+
+        .story-highlight h3 {
+            color: var(--green);
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .story-highlight .big-text {
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-highlight .big-text span {
+            color: var(--green);
+        }
+
+        /* ================= VALUES ================= */
+
+        .values-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 5vw, 45px);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .value-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 25px;
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--green);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #10291c;
+            border: 1px solid #205d3e;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= WHAT WE DO ================= */
+
+        .what-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .what-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .what-card:hover {
+            border-color: var(--green);
+            transform: translateX(4px);
+        }
+
+        .what-icon {
+            min-width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #10291c;
+            border-radius: 12px;
+            font-size: 25px;
+        }
+
+        .what-card h3 {
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+
+        .what-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* ================= LOCATION ================= */
+
+        .location-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        .location-box {
+            background:
+                linear-gradient(
+                    120deg,
+                    #10291c,
+                    #07110d
+                );
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .location-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .location-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .location-box h2 span {
+            color: var(--green);
+        }
+
+        .location-box p {
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta-section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px 85px;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: var(--card);
+            border: 1px solid var(--green);
+            border-radius: 20px;
+            padding: 50px 25px;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 15px;
+        }
+
+        .cta-box h2 span {
+            color: var(--green);
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--green);
+            color: #06100b;
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.18);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: #0b1712;
+            padding: 45px 20px 25px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-brand h2 {
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p,
+        footer li {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 7px;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #71877b;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+            }
+
+            .story-box {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                padding: 14px 12px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+            }
+
+            .story-content,
+            .story-highlight {
+                padding: 25px;
+            }
+
+            .values-grid,
+            .what-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-box {
+                padding: 30px 20px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="nav">
+
+            <a href="index.html" class="logo">
+                O.B <span>GAMES</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html"
+                   data-translate="home">
+                    Home
+                </a>
+
+                <a href="products.html"
+                   data-translate="products">
+                    Products
+                </a>
+
+                <a href="games.html"
+                   data-translate="games">
+                    Games
+                </a>
+
+                <a href="services.html"
+                   data-translate="services">
+                    Services
+                </a>
+
+                <a href="about.html"
+                   class="active"
+                   data-translate="about">
+                    About
+                </a>
+
+                <a href="contact.html"
+                   data-translate="contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="language-selector">
+
+                <button
+                    id="languageButton"
+                    type="button"
+                    onclick="toggleLanguageMenu()">
+
+                    🇬🇧 English ▾
+
+                </button>
+
+
+                <div
+                    id="languageMenu"
+                    class="language-menu">
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('en')">
+
+                        🇬🇧 English
+
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="changeLanguage('sw')">
+
+                        🇹🇿 Kiswahili
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            ABOUT O.B GAMES
+        </div>
+
+        <h1>
+
+            MORE THAN
+            <span>JUST GAMING.</span>
+
+        </h1>
+
+        <p data-translate="aboutPageText">
+
+            O.B GAMES is a gaming-focused business providing
+            gaming products, games and professional gaming
+            services to gamers.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= STORY ================= -->
+
+    <section class="story-section">
+
+        <div class="story-box">
+
+
+            <div class="story-content">
+
+                <h2>
+
+                    WHO IS
+                    <span>O.B GAMES?</span>
+
+                </h2>
+
+
+                <p data-translate="aboutStory1">
+
+                    O.B GAMES is built for gamers who want
+                    quality gaming products, games and reliable
+                    gaming support.
+
+                </p>
+
+
+                <p data-translate="aboutStory2">
+
+                    From controllers and consoles to games,
+                    accessories, installation support and repairs,
+                    we aim to make gaming easier and more
+                    accessible.
+
+                </p>
+
+
+                <p data-translate="aboutStory3">
+
+                    We are focused on building a trusted gaming
+                    brand that connects gamers with the products
+                    and services they need.
+
+                </p>
+
+            </div>
+
+
+            <div class="story-highlight">
+
+                <h3>
+                    OUR MINDSET
+                </h3>
+
+
+                <div class="big-text">
+
+                    GAMING IS NOT
+                    JUST A GAME.
+
+                    <br><br>
+
+                    IT'S A
+                    <span>PASSION.</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VALUES ================= -->
+
+    <section class="values-section">
+
+        <div class="section-title">
+
+            <h2 data-translate="ourValues">
+                OUR VALUES
+            </h2>
+
+            <p data-translate="valuesText">
+                The principles behind O.B GAMES.
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    🎮
+                </div>
+
+                <h3 data-translate="gamingFirst">
+                    Gaming First
+                </h3>
+
+                <p data-translate="gamingFirstText">
+
+                    Everything we do starts with understanding
+                    what gamers actually need.
+
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    ⭐
+                </div>
+
+                <h3 data-translate="quality">
+                    Quality
+                </h3>
+
+                <p data-translate="qualityText">
+
+                    We aim to provide reliable gaming products
+                    and useful gaming services.
+
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    🤝
+                </div>
+
+                <h3 data-translate="trust">
+                    Trust
+                </h3>
+
+                <p data-translate="trustText">
+
+                    We want every customer interaction to be
+                    clear, professional and trustworthy.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WHAT WE DO ================= -->
+
+    <section class="what-section">
+
+        <div class="section-title">
+
+            <h2 data-translate="whatWeDo">
+                WHAT WE DO
+            </h2>
+
+            <p data-translate="whatWeDoText">
+                Everything gaming, under one brand.
+            </p>
+
+        </div>
+
+
+        <div class="what-grid">
+
+
+            <article class="what-card">
+
+                <div class="what-icon">
+                    🎮
+                </div>
+
+                <div>
+
+                    <h3 data-translate="gamingProducts">
+                        Gaming Products
+                    </h3>
+
+                    <p data-translate="gamingProductsText">
+
+                        Controllers, consoles, headsets,
+                        keyboards and gaming accessories.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="what-card">
+
+                <div class="what-icon">
+                    🕹️
+                </div>
+
+                <div>
+
+                    <h3 data-translate="gamingGames">
+                        Games
+                    </h3>
+
+                    <p data-translate="gamingGamesText">
+
+                        Games for PS3, PS4 and PS5 available
+                        through our gaming services.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="what-card">
+
+                <div class="what-icon">
+                    ⚙️
+                </div>
+
+                <div>
+
+                    <h3 data-translate="gamingSetup">
+                        Game Installation & Setup
+                    </h3>
+
+                    <p data-translate="gamingSetupText">
+
+                        Support with game installation, setup,
+                        updates and gaming configuration.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="what-card">
+
+                <div class="what-icon">
+                    🛠️
+                </div>
+
+                <div>
+
+                    <h3 data-translate="gamingRepairs">
+                        Gaming Repairs
+                    </h3>
+
+                    <p data-translate="gamingRepairsText">
+
+                        Console and controller troubleshooting,
+                        maintenance and repair support.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LOCATION ================= -->
+
+    <section class="location-section">
+
+        <div class="location-box">
+
+            <div class="location-icon">
+                📍
+            </div>
+
+
+            <h2>
+
+                FIND
+                <span>O.B GAMES</span>
+
+            </h2>
+
+
+            <p data-translate="locationText">
+
+                Sumbawanga Mjini, Rukwa — Karibu na CCM Mkoa,
+                mkabala na Roundabout ya Two Way.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <h2>
+
+                LET'S
+                <span>GAME.</span>
+
+            </h2>
+
+
+            <p data-translate="aboutCtaText">
+
+                Looking for gaming products, games or gaming
+                services? O.B GAMES is ready to help.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="cta-button"
+                data-translate="contactUs">
+
+                CONTACT US
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    O.B GAMES
+                </h2>
+
+                <p data-translate="footerText">
+
+                    Gaming products, games and gaming
+                    services — all in one place.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="quickLinks">
+                    QUICK LINKS
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html"
+                           data-translate="home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html"
+                           data-translate="products">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="games.html"
+                           data-translate="games">
+                            Games
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="services.html"
+                           data-translate="services">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="company">
+                    COMPANY
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="about.html"
+                           data-translate="about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html"
+                           data-translate="contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 data-translate="connect">
+                    CONNECT
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="https://wa.me/255717184916"
+                           target="_blank">
+                            WhatsApp
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.instagram.com/o.b_games/"
+                           target="_blank">
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.tiktok.com/search?q=OB%20Game%20Sumbawanga"
+                           target="_blank">
+                            TikTok
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 O.B GAMES —
+
+            <span data-translate="allRights">
+                All Rights Reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= LANGUAGE ================= -->
+
+    <script src="language.js"></script>
+
+</body>
+
+</html>
